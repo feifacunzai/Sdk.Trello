@@ -44,21 +44,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board\BoardInstance.cs" />
-    <Compile Include="Board\Services\ListsService.cs" />
-    <Compile Include="Board\Models\ListsModel.cs" />
+    <Compile Include="CardInstance.cs" />
+    <Compile Include="BoardInstance.cs" />
+    <Compile Include="Services\ListsService.cs" />
+    <Compile Include="ViewModels\Entitys\CardEntity.cs" />
+    <Compile Include="ViewModels\ListsModel.cs" />
+    <Compile Include="Services\CardsService.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="AbstractTrello.cs" />
+    <Compile Include="BaseInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Action\" />
-    <Folder Include="Card\" />
-    <Folder Include="List\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
