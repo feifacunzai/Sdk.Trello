@@ -44,14 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CardInstance.cs" />
-    <Compile Include="BoardInstance.cs" />
-    <Compile Include="Services\ListsService.cs" />
+    <Compile Include="CardService.cs" />
+    <Compile Include="MemberService.cs" />
+    <Compile Include="ListService.cs" />
+    <Compile Include="BoardService.cs" />
+    <Compile Include="ViewModels\Entitys\IdMemberEntity.cs" />
+    <Compile Include="ViewModels\Entitys\CommentEntity.cs" />
+    <Compile Include="ViewModels\Entitys\BadgeEntity.cs" />
+    <Compile Include="ViewModels\Entitys\BoardEntity.cs" />
     <Compile Include="ViewModels\Entitys\CardEntity.cs" />
+    <Compile Include="ViewModels\Entitys\LabelnameEntity.cs" />
+    <Compile Include="ViewModels\Entitys\MembershipEntity.cs" />
+    <Compile Include="ViewModels\Entitys\PrefEntity.cs" />
     <Compile Include="ViewModels\ListsModel.cs" />
-    <Compile Include="Services\CardsService.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="BaseInstance.cs" />
+    <Compile Include="BaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
