@@ -1,4 +1,6 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using Sdk.Trello.Models.Entitys;
 using Sdk.Trello.ViewModels.Entitys;
 using System.Collections.Generic;
 
@@ -35,7 +37,7 @@ namespace Sdk.Trello
         /// <param name="idList"></param>
         /// <param name="card"></param>
         /// <returns></returns>
-        public CardEntity CreateCardOnList(string idList, CardEntity card)
+        public CardEntity CreateCardOnList(CreateCardOnListEntity card)
         {
             var client = new RestClient(
                 string.Format("{0}1/cards?key={1}&token={2}",
@@ -44,8 +46,7 @@ namespace Sdk.Trello
                 Config.Token));
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
-            card.idList = idList;
-            request.AddParameter("application/json", card, ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(card), ParameterType.RequestBody);
             return ApiResponse(client.Execute<CardEntity>(request));
         }
     }
