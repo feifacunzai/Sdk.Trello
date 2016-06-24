@@ -1,8 +1,6 @@
 language: csharp
 solution: Sdk.Trello.sln
-before_install:
-  - chmod +x build/build.mono.sh
 install:
   - nuget restore Sdk.Trello.sln
 script:
-  - ./build/build.mono.sh
+  - xbuild /p:Configuration=Release Sdk.Trello.sln
