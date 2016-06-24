@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Sdk.Trello.Models.Entitys
+namespace Sdk.Trello.ViewModels.Entitys
 {
-    public class CreateCardOnListEntity
+    public class CreateCardEntity
     {
         public string name { get; set; }
 
@@ -24,7 +24,7 @@ namespace Sdk.Trello.Models.Entitys
 
         public string keepFromSource { get; set; }
 
-        public CreateCardOnListEntity(string idList, string name)
+        public CreateCardEntity(string idList, string name)
         {
             this.idList = idList;
             this.name = name;

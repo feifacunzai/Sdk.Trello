@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
-using Sdk.Trello.Models.Entitys;
 using Sdk.Trello.ViewModels.Entitys;
 using System.Collections.Generic;
 
@@ -37,7 +36,7 @@ namespace Sdk.Trello
         /// <param name="idList"></param>
         /// <param name="card"></param>
         /// <returns></returns>
-        public CardEntity CreateCardOnList(CreateCardOnListEntity card)
+        public CardEntity CreateCardOnList(CreateCardEntity card)
         {
             var client = new RestClient(
                 string.Format("{0}1/cards?key={1}&token={2}",

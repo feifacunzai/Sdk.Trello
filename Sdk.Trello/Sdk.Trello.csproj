@@ -52,7 +52,8 @@
     <Compile Include="MemberService.cs" />
     <Compile Include="ListService.cs" />
     <Compile Include="BoardService.cs" />
-    <Compile Include="Models\Entitys\CreateCardOnListEntity.cs" />
+    <Compile Include="ViewModels\Entitys\UpdateCardEntity.cs" />
+    <Compile Include="ViewModels\Entitys\CreateCardEntity.cs" />
     <Compile Include="ViewModels\Entitys\IdMemberEntity.cs" />
     <Compile Include="ViewModels\Entitys\CommentEntity.cs" />
     <Compile Include="ViewModels\Entitys\BadgeEntity.cs" />

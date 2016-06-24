@@ -1,6 +1,6 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using Sdk.Trello.ViewModels.Entitys;
-using System;
 
 namespace Sdk.Trello
 {
@@ -18,11 +18,8 @@ namespace Sdk.Trello
         /// <param name="idList"></param>
         /// <param name="card"></param>
         /// <returns></returns>
-        public CardEntity Create(CardEntity card)
+        public CardEntity Create(CreateCardEntity card)
         {
-            if (string.IsNullOrEmpty(card.idList))
-                throw new Exception("屬性idList不得為空");
-
             var client = new RestClient(
                 string.Format("{0}1/cards?key={1}&token={2}",
                 Config.ApiUri,
@@ -30,7 +27,7 @@ namespace Sdk.Trello
                 Config.Token));
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
-            request.AddParameter("application/json", card, ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(card), ParameterType.RequestBody);
             return ApiResponse(client.Execute<CardEntity>(request));
         }
 
@@ -40,7 +37,7 @@ namespace Sdk.Trello
         /// </summary>
         /// <param name="cardId"></param>
         /// <returns></returns>
-        public CardEntity Update(string cardId, CardEntity card)
+        public CardEntity Update(string cardId, UpdateCardEntity card)
         {
             var client = new RestClient(
                 string.Format("{0}1/cards/{1}?key={2}&token={3}",
@@ -50,7 +47,7 @@ namespace Sdk.Trello
                 Config.Token));
             var request = new RestRequest(Method.PUT);
             request.AddHeader("content-type", "application/json");
-            request.AddParameter("application/json", card, ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(card), ParameterType.RequestBody);
             return ApiResponse(client.Execute<CardEntity>(request));
         }
 
@@ -71,7 +68,7 @@ namespace Sdk.Trello
                 Config.Token));
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
-            request.AddParameter("application/json", comment, ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(comment), ParameterType.RequestBody);
             return ApiResponse(client.Execute<CardEntity>(request));
         }
 
@@ -92,7 +89,7 @@ namespace Sdk.Trello
                 Config.Token));
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/json");
-            request.AddParameter("application/json", idMember, ParameterType.RequestBody);
+            request.AddParameter("application/json", JsonConvert.SerializeObject(idMember), ParameterType.RequestBody);
             return ApiResponse(client.Execute<CardEntity>(request));
         }
     }
