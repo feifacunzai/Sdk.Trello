@@ -1,5 +1,6 @@
-#Sdk.Trello
-讓開發者使用TrelloAPI存取資料
+#Sdk.Trello  
+[![Build Status](https://travis-ci.org/feifacunzai/Sdk.Trello.svg?branch=master)](https://travis-ci.org/feifacunzai/Sdk.Trello)
+####讓開發者使用TrelloAPI存取資料
 
 ## 專案
 實作TrelloAPI的基本存取功能，提供Board、List、Card等...CRUD操作。
