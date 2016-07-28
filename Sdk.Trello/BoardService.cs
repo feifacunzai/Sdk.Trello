@@ -47,5 +47,23 @@ namespace Sdk.Trello
             var request = new RestRequest(Method.GET);
             return ApiResponse(client.Execute<List<ListsModel>>(request));
         }
+
+        /// <summary>
+        /// Get an array of Labels on a board
+        /// GET /1/boards/[board_id]/labels
+        /// </summary>
+        /// <param name="boardId"></param>
+        /// <returns></returns>
+        public List<LabelEntity> Labels(string boardId)
+        {
+            var client = new RestClient(
+                string.Format("{0}1/boards/{1}/labels?key={2}&token={3}",
+                Config.ApiUri,
+                boardId,
+                Config.Key,
+                Config.Token));
+            var request = new RestRequest(Method.GET);
+            return ApiResponse(client.Execute<List<LabelEntity>>(request));
+        }
     }
 }

@@ -92,5 +92,7 @@ namespace Sdk.Trello
             request.AddParameter("application/json", JsonConvert.SerializeObject(idMember), ParameterType.RequestBody);
             return ApiResponse(client.Execute<CardEntity>(request));
         }
+
+
     }
 }

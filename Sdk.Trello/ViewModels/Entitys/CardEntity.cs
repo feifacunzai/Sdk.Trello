@@ -44,7 +44,7 @@ namespace Sdk.Trello.ViewModels.Entitys
 
         public List<string> idMembers { get; set; }
 
-        public List<string> labels { get; set; }
+        public List<LabelEntity> labels { get; set; }
 
         public string shortUrl { get; set; }
 

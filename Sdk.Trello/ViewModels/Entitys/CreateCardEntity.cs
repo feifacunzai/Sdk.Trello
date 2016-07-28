@@ -24,6 +24,9 @@ namespace Sdk.Trello.ViewModels.Entitys
 
         public string keepFromSource { get; set; }
 
+        public CreateCardEntity() {
+        }
+
         public CreateCardEntity(string idList, string name)
         {
             this.idList = idList;
