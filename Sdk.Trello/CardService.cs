@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 using Sdk.Trello.ViewModels.Entitys;
+using System.Collections.Generic;
 
 namespace Sdk.Trello
 {
@@ -9,6 +10,24 @@ namespace Sdk.Trello
         public CardService(string key, string token) 
             : base(key, token)
         {
+        }
+
+        /// <summary>
+        /// Get the contents of a Card
+        /// GET /1/cards/[card id or shortlink]
+        /// </summary>
+        /// <param name="cardId"></param>
+        /// <returns></returns>
+        public CardEntity Get(string cardId)
+        {
+            var client = new RestClient(
+                string.Format("{0}1/cards/{1}?key={2}&token={3}",
+                Config.ApiUri,
+                cardId,
+                Config.Key,
+                Config.Token));
+            var request = new RestRequest(Method.GET);
+            return ApiResponse(client.Execute<CardEntity>(request));
         }
 
         /// <summary>
@@ -93,6 +112,45 @@ namespace Sdk.Trello
             return ApiResponse(client.Execute<CardEntity>(request));
         }
 
+        /// <summary>
+        /// Add a Label to a Card
+        /// POST /1/cards/[card id or shortlink]/idLabels
+        /// </summary>
+        /// <param name="cardId"></param>
+        /// <param name="idMember"></param>
+        /// <returns></returns>
+        public CardEntity IdLabels(string cardId, AddLabelEntity addLabelEntity)
+        {
+            var client = new RestClient(
+                string.Format("{0}1/cards/{1}/idLabels?key={2}&token={3}",
+                Config.ApiUri,
+                cardId,
+                Config.Key,
+                Config.Token));
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("content-type", "application/json");
+            request.AddParameter("application/json", JsonConvert.SerializeObject(addLabelEntity), ParameterType.RequestBody);
+            return ApiResponse(client.Execute<CardEntity>(request));
+        }
 
+        /// <summary>
+        /// Delete a Label to a Card
+        /// DELETE /1/cards/[card id or shortlink]/idLabels
+        /// </summary>
+        /// <param name="cardId"></param>
+        /// <param name="idMember"></param>
+        /// <returns></returns>
+        public CardEntity DeleteLabel(string cardId, string idLabel)
+        {
+            var client = new RestClient(
+                string.Format("{0}1/cards/{1}/idLabels/{4}?key={2}&token={3}",
+                Config.ApiUri,
+                cardId,
+                Config.Key,
+                Config.Token,
+                idLabel));
+            var request = new RestRequest(Method.DELETE);
+            return ApiResponse(client.Execute<CardEntity>(request));
+        }
     }
 }

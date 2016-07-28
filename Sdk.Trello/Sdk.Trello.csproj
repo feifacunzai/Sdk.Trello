@@ -52,6 +52,7 @@
     <Compile Include="MemberService.cs" />
     <Compile Include="ListService.cs" />
     <Compile Include="BoardService.cs" />
+    <Compile Include="ViewModels\Entitys\AddLabelEntity.cs" />
     <Compile Include="ViewModels\Entitys\LabelEntity.cs" />
     <Compile Include="ViewModels\Entitys\UpdateCardEntity.cs" />
     <Compile Include="ViewModels\Entitys\CreateCardEntity.cs" />
